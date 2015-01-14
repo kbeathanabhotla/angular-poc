@@ -4,17 +4,17 @@ app.run(function () {
 
   $rp.when('/', {
     templateUrl: 'js/views/query-input-view-template.html',
-    controller: 'appCtrl'
+    controller: 'querySubmitCtrl'
   });
 
   $rp.when('/About', {
     templateUrl: 'js/views/query-input-view-template.html',
-    controller: 'appCtrl'
+    controller: 'querySubmitCtrl'
   });
 
   $rp.when('/Contact', {
     templateUrl: 'js/views/query-input-view-template.html',
-    controller: 'appCtrl'
+    controller: 'querySubmitCtrl'
   });
 
   $rp.otherwise({
