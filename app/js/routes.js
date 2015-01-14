@@ -7,20 +7,15 @@ app.run(function () {
     controller: 'appCtrl'
   });
 
-  /*$rp.when('/login', {
-    templateUrl: 'js/views/login-view-template.html',
-    controller: 'loginCtrl'
-  });
-
-  $rp.when('/week-view', {
-    templateUrl: 'js/views/week-view-template.html',
+  $rp.when('/About', {
+    templateUrl: 'js/views/query-input-view-template.html',
     controller: 'appCtrl'
   });
 
-  $rp.when('/month-view', {
-    templateUrl: 'js/views/month-view-template.html',
+  $rp.when('/Contact', {
+    templateUrl: 'js/views/query-input-view-template.html',
     controller: 'appCtrl'
-  });*/
+  });
 
   $rp.otherwise({
     redirectTo: '/'

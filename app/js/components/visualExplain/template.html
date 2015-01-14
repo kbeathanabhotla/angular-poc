@@ -1,0 +1,15 @@
+<div>
+	<form name='queryDialog' novalidate>
+		<div class='form-group form-group-sm'>
+			<label class='input-sm'>Enter the query to be viewed Graphically</label>
+			<textarea class='form-control input-sm' rows='4' ng-model='queryModel.taskDescription'>
+			</textarea>
+		</div>
+		<div>
+			<input enabled='hasChanged(queryModel)' type='submit' class='btn btn-success' ng-click='save()' 
+				value='Execute Query' 
+				ng-disabled='queryModel.$invalid'/>
+			<div class='btn btn-default' ng-click='reset()'> Reset </div>
+		</div>
+	</form>
+</div>

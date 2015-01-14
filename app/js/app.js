@@ -8,5 +8,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 app.controller('appCtrl', ['$scope', '$location', function ($scope, $location) {
-	console.log('Yahoo! ' + $location.path());
+	$scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
 }]);
