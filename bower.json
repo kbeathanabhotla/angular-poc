@@ -1,0 +1,22 @@
+{
+  "name": "angular-poc",
+  "version": "0.0.0",
+  "authors": [
+    "saikrishna-kishore <krishna.sai6491@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "app/lib",
+    "tests"
+  ],
+  "dependencies": {
+	"bootstrap": "~3.2.0",
+	"bootstrap-less": "~3.2.0",
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0",
+	"angular": "~1.2.28",
+    "angular-resource": "~1.2.28",
+    "angular-route": "~1.2.28"    
+  }
+}
