@@ -14,6 +14,10 @@ app.run(function () {
     templateUrl: 'js/views/default-view-template.html'
   });
 
+  $rp.when('/VisualExplain', {
+    templateUrl: 'js/views/visual-explain-view-template.html'
+  });
+
   $rp.otherwise({
     redirectTo: '/'
   });

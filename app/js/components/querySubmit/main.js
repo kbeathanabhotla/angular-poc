@@ -1,16 +1,25 @@
-app.directive('querySubmit', [ '$http', 'QueryService', function($http, queryService) {
+app.directive('querySubmit', [ '$http', '$location', 'QueryService', function($http, $location, queryService) {
 	return {
 		restrict : 'A',
 		templateUrl : 'js/components/querySubmit/template.html',
-		link: function (scope, elm, attrs) {
+		controller : [ '$scope', function(scope) {
+
+            function navigateToVisualExplain(queryId) {
+                $location.url('/VisualExplain?queryId=' + queryId);
+            }
 
             scope.execute = function() {
-            	queryService.visualExplain(scope.query);
+                var queryId = queryService.storeQuery(scope.query);
+                navigateToVisualExplain(queryId);
+                /*queryService.visualExplain(scope.query).then(function(response) {
+                    navigateToVisualExplain(response.data);
+                });*/
             };
 
             scope.clear = function() {
                 scope.query = '';
             };
-        }
+
+        }]
 	};
 }]);

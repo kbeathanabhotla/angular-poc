@@ -10,6 +10,12 @@ var config = {
     port: 8000,
     livereload: true,
     directoryListing: true,
+    proxies: [
+        {
+          source: '/oauth-sample',
+          target: 'http://localhost:8080/oauth-sample'
+        }
+      ]
     //this is the default file to be served
     //fallback: 'index.html'
   }
@@ -48,6 +54,15 @@ gulp.task('serve', ['watch-less', 'watch-js'], function () {
   gulp.src('app')
     .pipe(webserver(config.devServer));
 });
+
+/*gulp.task('serve', function() {
+  gulp.src('app')
+    .pipe(webserver({
+      port:       8080,
+      livereload: true,
+      
+    }));
+});*/
 
 gulp.task('default', ['serve'], function () {
   console.log('default task');

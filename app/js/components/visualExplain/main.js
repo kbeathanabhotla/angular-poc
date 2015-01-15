@@ -1,25 +1,24 @@
 /*globals app*/
-app.directive('visualExplain', ['VisualExplainService', function (VisualExplainService) {
+app.directive('visualExplain', ['VisualExplainService', 'QueryService', function (visualExplainService, queryService) {
   return {
     templateUrl : 'js/components/visualExplain/template.html',
     restrict    : 'E',
-    replace     : true,
-    transclude  : true,
-    scope       : {
-      model : '='
-    },
-    controller  : ['$scope', function (self) {
-      self.reset = function () {
-  	   self.tModel = angular.copy(self.model);
-      };
-      
-      self.hasChanged = function (aModel) {
-  	   return !angular.equals(aModel, self.model);
-      };
+    controller : [ '$scope', '$location' , function($scope, $location) {
 
-      self.$watch('model', function () {
-  	   self.reset();
-      });
-    }]
+    	//$location.search()
+    	var queryId = $location.search().queryId;
+    	console.log('query Id : '+queryId);
+
+    	var query = queryService.getQuery(queryId);
+    	
+
+    	/*var promise = visualExplainService.visualExplain(queryService.getQuery(queryId));
+
+    	promise.then(function(result) {
+    		console.log()
+    	});*/
+
+
+    }] 
   };
 }]);
