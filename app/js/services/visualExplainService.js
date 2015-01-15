@@ -7,6 +7,7 @@ app.service('VisualExplainService', [ '$http', function($http) {
 
 	this.visualExplain = function(query) {
 
+		console.log('query requesting : '+query);
 		return $http({
 					method: "POST",
 					headers: headers,

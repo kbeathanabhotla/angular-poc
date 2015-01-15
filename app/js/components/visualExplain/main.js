@@ -9,15 +9,21 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
     	var queryId = $location.search().queryId;
     	console.log('query Id : '+queryId);
 
-    	var query = queryService.getQuery(queryId);
-    	
+    	var visualStructure;
 
-    	/*var promise = visualExplainService.visualExplain(queryService.getQuery(queryId));
+    	if(queryService.getQuery(queryId).visualStructure) {
+            visualStructure = queryService.getQuery(queryId).visualStructure;
+        } else {
+            queryService.getQuery(queryId).visualStructure = '';
+            visualExplainService.visualExplain(queryService.getQuery(queryId).queryText)
+            .then(function(result) {
+                console.log('got result : '+JSON.stringify(result.data));
+                visualStructure = result.data;
+                queryService.getQuery(queryId).visualStructure = visualStructure;
+            });
+        }
 
-    	promise.then(function(result) {
-    		console.log()
-    	});*/
-
+        console.log('visual structure is : '+visualStructure);
 
     }] 
   };
