@@ -20,11 +20,11 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
             }
         }
 
-        var visualStructure = getVisualStructure($location.search().queryId);
+        /*var visualStructure = getVisualStructure($location.search().queryId);
 
         if(visualStructure) {
             console.log('visual structure is : '+visualStructure);    
-        }
+        }*/
         
     	
 

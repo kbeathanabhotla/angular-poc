@@ -12,8 +12,8 @@ var config = {
     directoryListing: true,
     proxies: [
         {
-          source: '/oauth-sample',
-          target: 'http://localhost:8080/oauth-sample'
+          source: '/visual-explain',
+          target: 'http://localhost:8080/visual-explain'
         }
       ]
     //this is the default file to be served
@@ -39,7 +39,7 @@ gulp.task('clean-css', function () {
 });
 
 /* Compile less to css */
-gulp.task('build-less', ['clean-css'], function () {
+gulp.task('build-less', function () {
   return gulp.src(['app/css/main.less'])
     .pipe(less({compress: true}))
     .pipe(gulp.dest('app/css'));

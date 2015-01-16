@@ -11,8 +11,8 @@ app.service('VisualExplainService', [ '$http', function($http) {
 		return $http({
 					method: "POST",
 					headers: headers,
-		      		url: '/oauth-sample/rest/employees',
-					data: {"name":query}
+		      		url: '/visual-explain/explain',
+					data: {"text":query}
 	    		}).success(function(result) {
 					//console.log(result);
 	    		}).error(function(data, status, headers, config) {
