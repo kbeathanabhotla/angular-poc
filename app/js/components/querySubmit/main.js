@@ -11,9 +11,6 @@ app.directive('querySubmit', [ '$http', '$location', 'QueryService', function($h
             scope.execute = function() {
                 var queryId = queryService.storeQuery(scope.query);
                 navigateToVisualExplain(queryId);
-                /*queryService.visualExplain(scope.query).then(function(response) {
-                    navigateToVisualExplain(response.data);
-                });*/
             };
 
             scope.clear = function() {

@@ -5,7 +5,26 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
     restrict    : 'E',
     controller : [ '$scope', '$location' , function($scope, $location) {
 
-        function getVisualStructure(queryId) {
+        function getExplainStructure(queryId) {
+            return visualExplainService.visualExplain(queryService.getQuery(queryId));
+        }
+
+        function paintStructure(structure) {
+            console.log('painting structure using : '+JSON.stringify(structure));
+        }
+
+         getExplainStructure($location.search().queryId).then(function(result) {
+            paintStructure(result.data);
+        });
+
+        /*function explain() {
+            getVisualStructure($location.search().queryId).then(function(response) {
+                paintStructure(response.data);
+            });  
+        }
+
+        explain();*/
+        /*function getVisualStructure(queryId) {
             if(queryService.getQuery(queryId).visualStructure) {
                 return queryService.getQuery(queryId).visualStructure;
             } else {
@@ -18,7 +37,7 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
                     return visualStructure;
                 });
             }
-        }
+        }*/
 
         /*var visualStructure = getVisualStructure($location.search().queryId);
 

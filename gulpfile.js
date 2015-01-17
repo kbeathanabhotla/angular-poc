@@ -16,8 +16,6 @@ var config = {
           target: 'http://localhost:8080/visual-explain'
         }
       ]
-    //this is the default file to be served
-    //fallback: 'index.html'
   }
 };
 
@@ -39,7 +37,7 @@ gulp.task('clean-css', function () {
 });
 
 /* Compile less to css */
-gulp.task('build-less', function () {
+gulp.task('build-less', ['clean-css'], function () {
   return gulp.src(['app/css/main.less'])
     .pipe(less({compress: true}))
     .pipe(gulp.dest('app/css'));
