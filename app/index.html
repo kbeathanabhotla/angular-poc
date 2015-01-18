@@ -22,7 +22,7 @@
 		
 		<link rel="stylesheet" type="text/css" href="/css/main.css"></link>
 	</head>
-	<body ng-app="app" ng-controller="appCtrl">
+	<body ng-app="app">
 		
 		<nav class="navbar navbar-default navbar-fixed-top">
 		  <div class="container container-fluid">
@@ -35,11 +35,11 @@
 			  </button>
 			  <a class="navbar-brand" href="#/">vecomp POC</a>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
+			<div id="navbar" class="navbar-collapse collapse" ng-controller="tabController">
 			  <ul class="nav navbar-nav">
-				<li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
-				<li ng-class="{ active: isActive('/About')}"><a href="#/About">About</a></li>
-				<li ng-class="{ active: isActive('/Contact')}"><a href="#/Contact">Contact</a></li>
+				<li ng-class="{ active: isTab(1)}"><a href="#/" ng-click="tabClick(1)">Home</a></li>
+				<li ng-class="{ active: isTab(2)}"><a href="#/About" ng-click="tabClick(2)">About</a></li>
+				<li ng-class="{ active: isTab(3)}"><a href="#/Contact" ng-click="tabClick(3)">Contact</a></li>
 			  </ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -55,6 +55,7 @@
 		<!-- User scripts -->
 		<script src="/js/app.js"></script>
 		<script src="/js/routes.js"></script>
+		<script src="/js/controllers/tabController.js"></script>
 		<script src="/js/components/visualExplain/main.js"></script>
 		<script src="/js/components/loadingAnimation/main.js"></script>
 		<script src="/js/components/querySubmit/main.js"></script>

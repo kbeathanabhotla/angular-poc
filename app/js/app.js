@@ -6,10 +6,3 @@ app.constant('_', _);
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProviderReference = $routeProvider;
 }]);
-
-app.controller('appCtrl', ['$scope', '$location', function ($scope, $location) {
-	$scope.isActive = function (viewLocation) { 
-		console.log('current location : '+$location.path());
-        return viewLocation === $location.path();
-    };
-}]);
