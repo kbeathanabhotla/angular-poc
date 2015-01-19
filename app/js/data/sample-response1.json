@@ -1,0 +1,46 @@
+{
+	"query" : "sel * from dbc.tables;",
+	"steps" : [
+		{
+			"isParallel" : false,
+			"objects" : [
+				{
+					"id": 1,
+					"name" : "Spool 1",
+					"type":"Database",
+					"properties" : [
+						{
+							"name" : "timeTaken",
+							"value" : "00:00:00:32"
+						},
+						{
+							"name" : "cost",
+							"value" : 1
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name" : "Table DBC.Dbase",
+					"type":"Table",
+					"properties" : [
+						{
+							"name" : "timeTaken",
+							"value" : "00:00:00:32"
+						},
+						{
+							"name" : "cost",
+							"value" : 1
+						}
+					]
+				}
+			],
+			"connections" : [
+				{
+					
+				}
+			]
+		}
+	]
+
+}

@@ -7,7 +7,11 @@ app.service('VisualExplainService', [ '$http', function($http) {
 
 	this.visualExplain = function(query) {
 
-		return $http({
+		/*return $.ajax({
+					url: "/js/data/sample-response1.json"
+			   });*/
+
+		/*return $http({
 					method: "POST",
 					headers: headers,
 		      		url: '/visual-explain/explain',
@@ -17,6 +21,11 @@ app.service('VisualExplainService', [ '$http', function($http) {
 			        console.log(status);
 			        console.log(headers);
 			        console.log(config);
+	    		});*/
+
+		return $http({
+					method: "GET",
+		      		url: '/js/data/sample-response1.json'
 	    		});
 	};
 }]);	

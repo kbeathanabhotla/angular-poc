@@ -8,6 +8,6 @@
 			};
 			$scope.isTab = function(tabArg){
 				return tabNum === tabArg;
-			}
+			};
 		});
 })();
