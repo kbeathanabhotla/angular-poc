@@ -1,24 +1,31 @@
 <div>
-	<?xml-stylesheet type="text/css" href="/css/main.css" ?> 
-
+	
 	<div>
 		Query is : <span style="color : #FF4000" >{{ query }}</span>
 	</div>
 
-	<svg>
-		<g ng-repeat="step in structure.steps">
-		   
-			<title>Table</title>
-			<rect ng-attr-x="calculateXPosition()"
-				  ng-attr-y="calculateYPosition()"
-				  ng-attr-width="{{ defaultSVGComponentWidth }}"
-				  ng-attr-height="{{ defaultSVGComponentHeight }}"
-				  class="svg-header"/>
-			<text x=0.75em y=1em>Table</text>
-			<rect x=0 y=1.25em width=4em height=3.75em class="svg-body"/>
+	
+	
+		<svg viewBox="0 0 100% 100%" preserveAspectRatio="xMidYMid meet">
+						
+			<g ng-repeat="obj in objectsToDraw">
+				<g ng-bind-html="trustAsHtml(obj.html)"></g>
+			</g>
 			
-		</g>
-	</svg>
+			<!--<g ng-repeat="step in structure.steps">
+			   
+				
+				<title>Table</title>
+							<rect ng-attr-x="{{ calculateXPosition() }}"
+								  ng-attr-y="{{ calculateYPosition() }}"
+								  ng-attr-width="{{ defaultSVGComponentWidth }}"
+								  ng-attr-height="{{ defaultSVGComponentHeight }}"
+								  class="svg-header"/>
+							<text x=0.75em y=1em>Table</text>
+							<rect x=0 y=1.25em width=4em height=3.75em class="svg-body"/>
+				
+			</g>-->
+		</svg>
 
-	This is under construction... see console logs for exact JSON
+	
 </div>
