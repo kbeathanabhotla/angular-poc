@@ -6,25 +6,23 @@
 
 	
 	
-		<svg viewBox="0 0 100% 100%" preserveAspectRatio="xMidYMid meet">
+		<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMin meet">
 						
 			<g ng-repeat="obj in objectsToDraw">
 				<g ng-bind-html="trustAsHtml(obj.html)"></g>
 			</g>
 			
-			<!--<g ng-repeat="step in structure.steps">
-			   
-				
-				<title>Table</title>
-							<rect ng-attr-x="{{ calculateXPosition() }}"
-								  ng-attr-y="{{ calculateYPosition() }}"
-								  ng-attr-width="{{ defaultSVGComponentWidth }}"
-								  ng-attr-height="{{ defaultSVGComponentHeight }}"
-								  class="svg-header"/>
-							<text x=0.75em y=1em>Table</text>
-							<rect x=0 y=1.25em width=4em height=3.75em class="svg-body"/>
-				
-			</g>-->
+			<g ng-repeat="line in linesToDraw">
+				<line ng-attr-x1="{{ line.x1 }}em" ng-attr-y1="{{ line.y1 }}em" ng-attr-x2="{{ line.x2 }}em" ng-attr-y2="{{ line.y2 }}em" class="svg-line"></line>
+			</g>
+			
+			
+			<!--
+			<text id="thingyouhoverover" x="50" y="35" font-size="14">Mouse over me!</text>
+				<text id="thepopup" x="250" y="100" font-size="30" fill="black" visibility="hidden">Change me
+				<set attributeName="visibility" from="hidden" to="visible" begin="thingyouhoverover.mouseover" end="thingyouhoverover.mouseout"/>
+			</text>-->
+
 		</svg>
 
 	
