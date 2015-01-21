@@ -1,46 +1,260 @@
 {
 	"query" : "sel * from dbc.tables;",
-	"steps" : [
-		{
-			"isParallel" : false,
-			"objects" : [
-				{
-					"id": 1,
-					"name" : "Spool 1",
-					"type":"Database",
-					"properties" : [
-						{
-							"name" : "timeTaken",
-							"value" : "00:00:00:32"
-						},
-						{
-							"name" : "cost",
-							"value" : 1
+	"structure" : {
+		"steps" : [
+			{
+				"isParallel" : false,
+				"name" : "Step 1",
+				"objects" : [
+					{
+						"isParallel" : false,
+						"data" : {
+							"id": 1,
+							"name" : "Step 1 Object 1",
+							"type":"Database",
+							"properties" : [
+								{
+									"name" : "obj 1 prop 1",
+									"value" : "obj 1 val 1"
+								},
+								{
+									"name" : "obj 1 prop 2",
+									"value" : "obj 1  val 2"
+								}
+							]
 						}
-					]
-				},
-				{
-					"id": 2,
-					"name" : "Table DBC.Dbase",
-					"type":"Table",
-					"properties" : [
-						{
-							"name" : "timeTaken",
-							"value" : "00:00:00:32"
-						},
-						{
-							"name" : "cost",
-							"value" : 1
+					},
+					{
+						"isParallel" : true,
+						"dataSet" : [
+							{
+								"id": 2,
+								"name" : "Step 1 Object 2",
+								"type":"Table",
+								"properties" : [
+									{
+										"name" : "obj 2 prop 1",
+										"value" : "obj 2 val 1"
+									},
+									{
+										"name" : "obj 2 prop 2",
+										"value" : "obj 2 val 2"
+									}
+								]
+							},
+							{
+								"id": 3,
+								"name" : "Step 1 Object 3",
+								"type":"Database",
+								"properties" : [
+									{
+										"name" : "obj 3 prop 1",
+										"value" : "obj 3 val 1"
+									},
+									{
+										"name" : "obj 3 prop 2",
+										"value" : "obj 3 val 2"
+									}
+								]
+							}
+						]
+						
+					},
+					{
+						"isParallel" : false,
+						"data" : {
+							"id": 4,
+							"name" : "Step 1 Object 4",
+							"type":"Spool 1",
+							"properties" : [
+								{
+									"name" : "obj 4 prop 1",
+									"value" : "obj 4 val 1"
+								},
+								{
+									"name" : "obj 4 prop 2",
+									"value" : "obj 4  val 2"
+								}
+							]
 						}
-					]
-				}
-			],
-			"connections" : [
-				{
-					
-				}
-			]
-		}
-	]
-
+					}
+				],
+				"connections" : [
+					{
+						"fromId" :1,
+						"toId" : 2
+					},
+					{
+						"fromId" :1,
+						"toId" : 3
+					},
+					{
+						"fromId" :2,
+						"toId" : 4
+					},
+					{
+						"fromId" :3,
+						"toId" : 4
+					}
+				]
+			},
+			{
+				"isParallel" : true,
+				"steps" : [
+					{
+						"name" : "Step 2.1",
+						"objects" : [
+							{
+								"isParallel" : false,
+								"data" : {
+									"id": 5,
+									"name" : "Step 2.1 Object 1",
+									"type":"Database",
+									"properties" : [
+										{
+											"name" : "Step 2.1 Object 1 prop 1",
+											"value" : "Step 2.1 Object 1 val 1"
+										},
+										{
+											"name" : "Step 2.1 Object 1 prop 2",
+											"value" : "Step 2.1 Object 1  val 2"
+										}
+									]
+								}
+							},
+							{
+								"isParallel" : true,
+								"dataSet" : [
+									{
+										"id": 6,
+										"name" : "Step 2.1 Object 2",
+										"type":"Table",
+										"properties" : [
+											{
+												"name" : "Step 2.1 Object 2 prop 1",
+												"value" : "Step 2.1 Object 2 val 1"
+											},
+											{
+												"name" : "Step 2.1 Object 2 prop 2",
+												"value" : "Step 2.1 Object 2 val 2"
+											}
+										]
+									},
+									{
+										"id": 7,
+										"name" : "Step 2.1 Object 3",
+										"type":"Database",
+										"properties" : [
+											{
+												"name" : "Step 2.1 Object 3 prop 1",
+												"value" : "Step 2.1 Object 3 val 1"
+											},
+											{
+												"name" : "Step 2.1 Object 3 prop 2",
+												"value" : "Step 2.1 Object 3 val 2"
+											}
+										]
+									}
+								]
+								
+							},
+							{
+								"isParallel" : false,
+								"data" : {
+									"id": 8,
+									"name" : "Step 2.1 Object 4",
+									"type":"Spool 1",
+									"properties" : [
+										{
+											"name" : "Step 2.1 Object 4 prop 1",
+											"value" : "Step 2.1 Object 4 val 1"
+										},
+										{
+											"name" : "Step 2.1 Object 4 prop 2",
+											"value" : "Step 2.1 Object 4  val 2"
+										}
+									]
+								}
+							}
+						],
+						"connections" : [
+							{
+								"fromId" :5,
+								"toId" : 6
+							},
+							{
+								"fromId" :5,
+								"toId" : 7
+							},
+							{
+								"fromId" :7,
+								"toId" : 8
+							},
+							{
+								"fromId" :6,
+								"toId" : 8
+							}
+						]
+					},
+					{
+						"name" : "Step 2.2",
+						"objects" : [
+							{
+								"isParallel" : false,
+								"data" : {
+									"id": 9,
+									"name" : "Step 2.2 Object 1",
+									"type":"Database",
+									"properties" : [
+										{
+											"name" : "Step 2.2 Object 1 prop 1",
+											"value" : "Step 2.2 Object 1 val 1"
+										},
+										{
+											"name" : "Step 2.2 Object 1 prop 2",
+											"value" : "Step 2.2 Object 1  val 2"
+										}
+									]
+								}
+							},
+							{
+								"isParallel" : false,
+								"data" : {
+									"id": 10,
+									"name" : "Step 2.2 Object 2",
+									"type":"Spool 1",
+									"properties" : [
+										{
+											"name" : "Step 2.2 Object 2 prop 1",
+											"value" : "Step 2.2 Object 2 val 1"
+										},
+										{
+											"name" : "Step 2.2 Object 2 prop 2",
+											"value" : "Step 2.2 Object 2  val 2"
+										}
+									]
+								}
+							}
+						],
+						"connections" : [
+							{
+								"fromId" :9,
+								"toId" : 10
+							}
+						]
+					}
+				]
+			}
+		],
+		"connections" : [
+			{
+				"fromId" :4,
+				"toId" : 5
+			},
+			{
+				"fromId" :4,
+				"toId" : 9
+			}
+		]
+	}
 }
