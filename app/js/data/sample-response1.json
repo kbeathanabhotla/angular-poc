@@ -131,34 +131,40 @@
 								"isParallel" : true,
 								"dataSet" : [
 									{
-										"id": 6,
-										"name" : "Step 2.1 Object 2",
-										"type":"Table",
-										"properties" : [
-											{
-												"name" : "Step 2.1 Object 2 prop 1",
-												"value" : "Step 2.1 Object 2 val 1"
-											},
-											{
-												"name" : "Step 2.1 Object 2 prop 2",
-												"value" : "Step 2.1 Object 2 val 2"
-											}
-										]
+										"isParallel" : false,
+										"data" : {
+											"id": 6,
+											"name" : "Step 2.1 Object 2",
+											"type":"Database",
+											"properties" : [
+												{
+													"name" : "Step 2.1 Object 2 prop 1",
+													"value" : "Step 2.1 Object 2 val 1"
+												},
+												{
+													"name" : "Step 2.1 Object 2 prop 2",
+													"value" : "Step 2.1 Object 2  val 2"
+												}
+											]
+										}
 									},
 									{
-										"id": 7,
-										"name" : "Step 2.1 Object 3",
-										"type":"Database",
-										"properties" : [
-											{
-												"name" : "Step 2.1 Object 3 prop 1",
-												"value" : "Step 2.1 Object 3 val 1"
-											},
-											{
-												"name" : "Step 2.1 Object 3 prop 2",
-												"value" : "Step 2.1 Object 3 val 2"
-											}
-										]
+										"isParallel" : false,
+										"data" : {
+											"id": 7,
+											"name" : "Step 2.1 Object 3",
+											"type":"Database",
+											"properties" : [
+												{
+													"name" : "Step 2.1 Object 3 prop 1",
+													"value" : "Step 2.1 Object 3 val 1"
+												},
+												{
+													"name" : "Step 2.1 Object 3 prop 2",
+													"value" : "Step 2.1 Object 3  val 2"
+												}
+											]
+										}
 									}
 								]
 								
