@@ -7,11 +7,20 @@
 
 	<svg id="processEditorDocument" class="visual-explain" xmlns="http://www.w3.org/2000/svg">
 
-		<g ng-repeat="object in objects">
-			<g id="{{ object.id }}" show-props-on-hover>
-				<path d="{{ object.points }}" stroke="blue" stroke-width="1" fill="none"></path>
+		
+			<g ng-repeat="object in objects" id="{{ object.id }}" show-props-on-hover>
+				<path ng-attr-d="{{object.points}}" stroke="blue" stroke-width="1" fill="none"></path>
 			</g>
-		</g>
+		
+			<g ng-repeat="text in texts">
+				<text ng-attr-x="{{ text.x }}" ng-attr-y="{{ text.y }}" ng-attr-stroke-width="{{ text.stroke || 1 }}" ng-attr-fill="{{ text.color || 'red' }}">{{ text.data }}</text>
+			</g>
+
+			<g ng-repeat="connection in objectConnections">
+				<line ng-attr-x1="{{ connection.x1 }}" ng-attr-y1="{{ connection.y1 }}" ng-attr-x2="{{ connection.x2 }}" ng-attr-y2="{{ connection.y2 }}" style="stroke:rgb(255,0,0);stroke-width:2" />
+			</g>
+
+
 
 		<!-- <g ng-show="showStepConnections">
 			<text x="50" y="50" fill="red" ng-repeat="connection in connections">I love SVG!</text>

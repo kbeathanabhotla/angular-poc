@@ -1,13 +1,13 @@
-app.directive('show-props-on-hover',
-   function() {
-      return {
-         link : function(scope, element, attrs) {
-            element.parent().bind('mouseenter', function() {
-                //element.id;
+app.directive('show-props-on-hover', function() {
+  return {
+    restrict : "A",
+    link : function(scope, element, attrs) {
+            element.bind('mouseenter', function() {
+              console.log('mouse entered');
             });
-            element.parent().bind('mouseleave', function() {
-                 //element.hide();
+            element.bind('mouseleave', function() {
+              console.log('mouse left');
             });
-       }
+           }
    };
 });
