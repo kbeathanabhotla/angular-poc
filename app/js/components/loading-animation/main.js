@@ -1,6 +1,6 @@
 app.directive('loadingAnimation',   ['$http' ,function ($http) {
     return {
-        templateUrl : 'js/components/loadingAnimation/template.html',
+        templateUrl : 'js/components/loading-animation/template.html',
         restrict: 'A',
         link: function (scope, elm, attrs) {
             scope.isLoading = function () {

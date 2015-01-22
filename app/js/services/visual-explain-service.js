@@ -7,6 +7,7 @@ app.service('VisualExplainService', [ '$http', function($http) {
 
 	this.visualExplain = function(query) {
 
+		console.log('query is : '+JSON.stringify(query));
 		/*return $.ajax({
 					url: "/js/data/sample-response1.json"
 			   });*/

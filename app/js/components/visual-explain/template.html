@@ -1,6 +1,26 @@
 <div>
-	
+
 	<div>
+		Query is : <span style="color : #FF4000" >{{ query }}</span> <br />
+		Show Step Connections : <input type="checkbox" ng-model="showStepConnections"></input>
+	</div>
+
+	<svg id="processEditorDocument" class="visual-explain" xmlns="http://www.w3.org/2000/svg">
+
+		<g ng-repeat="object in objects">
+			<g id="{{ object.id }}" show-props-on-hover>
+				<path d="{{ object.points }}" stroke="blue" stroke-width="1" fill="none"></path>
+			</g>
+		</g>
+
+		<!-- <g ng-show="showStepConnections">
+			<text x="50" y="50" fill="red" ng-repeat="connection in connections">I love SVG!</text>
+		</g> -->
+
+    </svg>
+
+
+	<!-- <div>
 		Query is : <span style="color : #FF4000" >{{ query }}</span>
 	</div>
 
@@ -17,13 +37,13 @@
 			</g>
 			
 			
-			<!--
+		
 			<text id="thingyouhoverover" x="50" y="35" font-size="14">Mouse over me!</text>
 				<text id="thepopup" x="250" y="100" font-size="30" fill="black" visibility="hidden">Change me
 				<set attributeName="visibility" from="hidden" to="visible" begin="thingyouhoverover.mouseover" end="thingyouhoverover.mouseout"/>
-			</text>-->
+			</text>
 
-		</svg>
+		</svg> -->
 
 	
 </div>

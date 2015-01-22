@@ -1,30 +1,10 @@
-svg {
-  /*
-  position:absolute;
-    padding-right:5%;
-    padding-bottom:5%;
-    height:95%;
-    width:95%*/
-  border:1px solid #ccc; 
-  position:absolute;
-  width:80%; 
-  height:200%; 
+@gridColumnWidth : 60px;
+
+.visual-explain {
+  min-height: @gridColumnWidth/2 * 50;
+  min-width: @gridColumnWidth * 30;
+  height: 100%;
+  width: 100%;
+  border:1px solid #ccc;
   background:#fff;
-}
-
-.svg-header {
-  fill:#BDBDBD;
-  stroke-width:1;
-  stroke:#000000;
-}
-
-.svg-body {
-  fill:#ffffff;
-  stroke-width:1;
-  stroke:#000000;
-}
-
-.svg-line {
-  stroke:rgb(255,0,0);
-  stroke-width:2;
 }

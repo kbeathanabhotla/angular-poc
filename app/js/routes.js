@@ -6,12 +6,9 @@ app.run(function () {
     templateUrl: 'js/views/default-view-template.html'
   });
 
-  $rp.when('/About', {
-    templateUrl: 'js/views/default-view-template.html'
-  });
-
-  $rp.when('/Contact', {
-    templateUrl: 'js/views/default-view-template.html'
+  $rp.when('/History', {
+    templateUrl: 'js/views/history-view-template.html',
+    controller : 'HistoryController'
   });
 
   $rp.when('/VisualExplain', {

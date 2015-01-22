@@ -1,7 +1,7 @@
 app.directive('querySubmit', [ '$http', '$location', 'QueryService', function($http, $location, queryService) {
 	return {
 		restrict : 'A',
-		templateUrl : 'js/components/querySubmit/template.html',
+		templateUrl : 'js/components/query-submit/template.html',
 		controller : [ '$scope', function(scope) {
 
             function navigateToVisualExplain(queryId) {
