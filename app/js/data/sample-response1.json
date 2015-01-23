@@ -255,6 +255,54 @@
 						]
 					}
 				]
+			},
+			{
+				"isParallel" : false,
+				"name" : "Step 3",
+				"objects" : [
+					{
+						"isParallel" : false,
+						"data" : {
+							"id": 11,
+							"name" : "Step 3 Object 1",
+							"type":"Database",
+							"properties" : [
+								{
+									"name" : "Step 3 Object 1 prop 1",
+									"value" : "Step 3 Object 1 val 1"
+								},
+								{
+									"name" : "Step 3 Object 1 prop 2",
+									"value" : "Step 3 Object 1 val 2"
+								}
+							]
+						}
+					},
+					{
+						"isParallel" : false,
+						"data" : {
+							"id": 12,
+							"name" : "Step 3 Object 2",
+							"type":"Database",
+							"properties" : [
+								{
+									"name" : "Step 3 Object 2 prop 1",
+									"value" : "Step 3 Object 2 val 1"
+								},
+								{
+									"name" : "Step 3 Object 2 prop 2",
+									"value" : "Step 3 Object 2 val 2"
+								}
+							]
+						}
+					}
+				],
+				"connections" : [
+					{
+						"fromId" :11,
+						"toId" : 12
+					}
+				]
 			}
 		],
 		"connections" : [
@@ -265,6 +313,14 @@
 			{
 				"fromId" :4,
 				"toId" : 9
+			},
+			{
+				"fromId" :8,
+				"toId" : 11
+			},
+			{
+				"fromId" :10,
+				"toId" : 11
 			}
 		]
 	}

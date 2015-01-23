@@ -14,7 +14,7 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
 
       var objectLocations = {};
 
-      $scope.showStepConnections = true;
+      $scope.showStepConnections = false;
       $scope.objects = [];
       $scope.stepConnections = [];
       $scope.objectConnections = [];
@@ -71,7 +71,7 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
               //this.objectLocations[objId] = this.objectLocations[objId] || {};
               objectLocations[currentParallelObject.data.id] = {"x":currentXPosition, "y" : currentYPosition};
               evaluateObject(currentParallelObject);
-              currentXPosition = currentXPosition + (1.5*defaultObjectSpacing);
+              currentXPosition = currentXPosition + (2*defaultObjectSpacing);
             }
             currentXPosition = defaultXPosition;
             currentYPosition = currentYPosition + defaultObjectSpacing;
@@ -130,16 +130,20 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
             //console.log('step : '+ JSON.stringify(step));
 
             if(step.isParallel) {
+			  var farthestYPosition = 0;
               for(var j=0;j<step.steps.length;j++) {
                 var yPositionBeforePainting = currentYPosition;
                 evaluateStep(step.steps[j]);
                 currentXPosition = currentXPosition + defaultColumnSpacing;
+				farthestYPosition = currentYPosition;
                 currentYPosition = yPositionBeforePainting;
               }
+			  currentYPosition = farthestYPosition + (3*defaultStepSpacing);
             } else {
               evaluateStep(step);
             }
-
+			
+			currentXPosition = defaultXPosition;
             currentYPosition = currentYPosition + defaultStepSpacing;
           }
           evaluateStepConnections(data.structure.connections);
