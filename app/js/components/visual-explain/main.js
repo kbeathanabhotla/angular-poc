@@ -14,7 +14,7 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
 
       var objectLocations = {};
 
-      $scope.showStepConnections = false;
+      $scope.showStepConnections = true;
       $scope.objects = [];
       $scope.stepConnections = [];
       $scope.objectConnections = [];
@@ -104,6 +104,23 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
         }
       }
 
+      function evaluateStepConnections(connections) {
+        for(var i = 0;i<connections.length;i++) {
+          var from = objectLocations[connections[i].fromId];
+          var to = objectLocations[connections[i].toId];
+
+          var stepLine = {};
+
+          stepLine.x1 = from.x + (defaultObjectWidth/2);
+          stepLine.y1 = from.y + defaultObjectHeight;
+
+          stepLine.x2 = to.x + (defaultObjectWidth/2);
+          stepLine.y2 = to.y;
+
+          self.stepConnections.push(stepLine);
+        }
+      }
+
       function paintStructure(data) {
           self.query = data.query;
           var steps = data.structure.steps;
@@ -125,6 +142,8 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
 
             currentYPosition = currentYPosition + defaultStepSpacing;
           }
+          evaluateStepConnections(data.structure.connections);
+          console.log('step connections : '+JSON.stringify(self.stepConnections));
       }
 
       getExplainStructure($location.search().queryId).then(function(result) {
