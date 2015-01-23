@@ -12,7 +12,7 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
           defaultColumnSpacing = 500;
       var currentXPosition = 100, currentYPosition = 40;
 
-      this.objectLocations = {};
+      var objectLocations = {};
 
       $scope.showStepConnections = false;
       $scope.objects = [];
@@ -60,13 +60,16 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
         self.texts.push(text);
 
         for (var j = 0; j < step.objects.length; j++) {
+          //console.log('objectSteps : '+JSON.stringify(objectLocations));
           var currentObject = step.objects[j];
           if(currentObject.isParallel) {
             var parallelObjects = currentObject.dataSet;
             for(var k = 0 ;k<currentObject.dataSet.length;k++) {
               var currentParallelObject = parallelObjects[k];
               //this.objectLocations[currentParallelObject.data.id] = {};
-              //this.objectLocations[currentParallelObject.data.id] = {"x":currentXPosition, "y" : currentYPosition};
+              //var objId = currentParallelObject.data.id;
+              //this.objectLocations[objId] = this.objectLocations[objId] || {};
+              objectLocations[currentParallelObject.data.id] = {"x":currentXPosition, "y" : currentYPosition};
               evaluateObject(currentParallelObject);
               currentXPosition = currentXPosition + (1.5*defaultObjectSpacing);
             }
@@ -74,7 +77,9 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
             currentYPosition = currentYPosition + defaultObjectSpacing;
           } else {
             //this.objectLocations[currentObject.data.id] = {};
-            //this.objectLocations[currentObject.data.id] = {"x":currentXPosition, "y" : currentYPosition};
+            //var objId = currentObject.data.id;
+            //this.objectLocations[objId] = this.objectLocations[objId] || {};
+            objectLocations[currentObject.data.id] = {"x":currentXPosition, "y" : currentYPosition};
             //objectLocations.x = currentXPosition;
 
             evaluateObject(currentObject);
@@ -82,10 +87,10 @@ app.directive('visualExplain', ['VisualExplainService', 'QueryService', function
           }
         }
 
-        for(var k = 0 ; k < step.connections.length; k++) {
-          var currentConnection = step.connections[k];
-          var from = this.objectLocations[currentConnection.fromId];
-          var to = this.objectLocations[currentConnection.toId];
+        for(var l = 0 ; l < step.connections.length; l++) {
+          var currentConnection = step.connections[l];
+          var from = objectLocations[currentConnection.fromId];
+          var to = objectLocations[currentConnection.toId];
 
           var objectLine = {};
 
