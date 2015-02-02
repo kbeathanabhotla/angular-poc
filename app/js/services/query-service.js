@@ -1,15 +1,15 @@
-app.service('QueryService', function() {
-	
-	var queries = {};
-	var queryId = 0;
+app.service('QueryService', function () {
 
-	this.storeQuery = function(query) {
-		queryId++;
-		queries[queryId] = query;
-		return queryId;
-	};
+    var queries = {};
+    var queryId = 0;
 
-	this.getQuery = function(queryId) {
-		return queries[queryId];
-	};
+    this.storeQuery = function (query) {
+        queryId++;
+        queries[queryId] = query;
+        return queryId;
+    };
+
+    this.getQuery = function (queryId) {
+        return queries[queryId];
+    };
 });

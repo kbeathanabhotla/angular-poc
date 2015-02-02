@@ -1,3 +1,3 @@
-app.controller('HistoryController', [ 'QueryService' , function(queryService) {
+app.controller('HistoryController', ['QueryService', function (queryService) {
 
-}]);
+    }]);

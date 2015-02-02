@@ -1,22 +1,22 @@
-app.directive('querySubmit', [ '$http', '$location', 'QueryService', function($http, $location, queryService) {
-	return {
-		restrict : 'A',
-		templateUrl : 'js/components/query-submit/template.html',
-		controller : [ '$scope', function(scope) {
+app.directive('querySubmit', ['$http', '$location', 'QueryService', function ($http, $location, queryService) {
+        return {
+            restrict: 'A',
+            templateUrl: 'js/components/query-submit/template.html',
+            controller: ['$scope', function (scope) {
 
-            function navigateToVisualExplain(queryId) {
-                $location.url('/VisualExplain?queryId=' + queryId);
-            }
+                    function navigateToVisualExplain(queryId) {
+                        $location.url('/VisualExplain?queryId=' + queryId);
+                    }
 
-            scope.execute = function() {
-                var queryId = queryService.storeQuery(scope.query);
-                navigateToVisualExplain(queryId);
-            };
+                    scope.execute = function () {
+                        var queryId = queryService.storeQuery(scope.query);
+                        navigateToVisualExplain(queryId);
+                    };
 
-            scope.clear = function() {
-                scope.query = '';
-            };
+                    scope.clear = function () {
+                        scope.query = '';
+                    };
 
-        }]
-	};
-}]);
+                }]
+        };
+    }]);

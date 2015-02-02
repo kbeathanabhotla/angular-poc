@@ -1,61 +1,56 @@
 <div>
 
-	<div>
-		Query is : <span style="color : #FF4000" >{{ query }}</span> <br />
-		Show Step Connections : <input type="checkbox" ng-model="showStepConnections"></input>
-	</div>
+    <div>
+        Query is : <span style="color : #FF4000" >{{ query}}</span> <br />
+        Show Step Connections : <input type="checkbox" ng-model="showStepConnections"></input>
+    </div>
 
-	<svg id="processEditorDocument" class="visual-explain" xmlns="http://www.w3.org/2000/svg">
-
-		
-			<g ng-repeat="object in objects" id="{{ object.id }}" show-props-on-hover>
-				<path ng-attr-d="{{object.points}}" stroke="blue" stroke-width="1" fill="none"></path>
-			</g>
-		
-			<g ng-repeat="text in texts">
-				<text ng-attr-x="{{ text.x }}" ng-attr-y="{{ text.y }}" ng-attr-stroke-width="{{ text.stroke || 1 }}" ng-attr-fill="{{ text.color || 'red' }}">{{ text.data }}</text>
-			</g>
-
-			<g ng-repeat="connection in objectConnections">
-				<line ng-attr-x1="{{ connection.x1 }}" ng-attr-y1="{{ connection.y1 }}" ng-attr-x2="{{ connection.x2 }}" ng-attr-y2="{{ connection.y2 }}" style="stroke:rgb(0,0,0);stroke-width:1" />
-			</g>
-
-			<g ng-repeat="connection in stepConnections">
-				<line ng-show="showStepConnections" ng-attr-x1="{{ connection.x1 }}" ng-attr-y1="{{ connection.y1 }}" ng-attr-x2="{{ connection.x2 }}" ng-attr-y2="{{ connection.y2 }}" style="stroke:#BDBDBD;stroke-width:1" />
-			</g>
+    <svg id="processEditorDocument" class="visual-explain" xmlns="http://www.w3.org/2000/svg">
 
 
-		<!-- <g ng-show="showStepConnections">
-			<text x="50" y="50" fill="red" ng-repeat="connection in connections">I love SVG!</text>
-		</g> -->
+        <g ng-repeat="object in objects" id="{{ object.id}}" ng-mouseenter="mouseEntered()" ng-mouseleave="mouseLeft()">
+            <path ng-attr-d="{{object.points}}" stroke="blue" stroke-width="1" fill="white"></path>
+        </g>
+
+        <g ng-repeat="text in texts">
+            <text ng-attr-x="{{ text.x}}" ng-attr-y="{{ text.y}}" ng-attr-stroke-width="{{ text.stroke || 1 }}" ng-attr-fill="{{ text.color || 'red' }}">{{ text.data}}</text>
+        </g>
+
+        <g ng-repeat="connection in objectConnections">
+            <line ng-attr-x1="{{ connection.x1}}" ng-attr-y1="{{ connection.y1}}" ng-attr-x2="{{ connection.x2}}" ng-attr-y2="{{ connection.y2}}" style="stroke:rgb(0,0,0);stroke-width:1" />
+        </g>
+
+        <g ng-repeat="connection in stepConnections">
+            <line ng-show="showStepConnections" ng-attr-x1="{{ connection.x1}}" ng-attr-y1="{{ connection.y1}}" ng-attr-x2="{{ connection.x2}}" ng-attr-y2="{{ connection.y2}}" style="stroke:#BDBDBD;stroke-width:1" />
+        </g>
 
     </svg>
 
 
-	<!-- <div>
-		Query is : <span style="color : #FF4000" >{{ query }}</span>
-	</div>
+    <!-- <div>
+            Query is : <span style="color : #FF4000" >{{ query }}</span>
+    </div>
 
-	
-	
-		<svg preserveAspectRatio="xMinYMin meet">
-						
-			<g ng-repeat="obj in objectsToDraw">
-				<g ng-bind-html="trustAsHtml(obj.html)"></g>
-			</g>
-			
-			<g ng-repeat="line in linesToDraw">
-				<line ng-attr-x1="{{ line.x1 }}em" ng-attr-y1="{{ line.y1 }}em" ng-attr-x2="{{ line.x2 }}em" ng-attr-y2="{{ line.y2 }}em" class="svg-line"></line>
-			</g>
-			
-			
-		
-			<text id="thingyouhoverover" x="50" y="35" font-size="14">Mouse over me!</text>
-				<text id="thepopup" x="250" y="100" font-size="30" fill="black" visibility="hidden">Change me
-				<set attributeName="visibility" from="hidden" to="visible" begin="thingyouhoverover.mouseover" end="thingyouhoverover.mouseout"/>
-			</text>
+    
+    
+            <svg preserveAspectRatio="xMinYMin meet">
+                                            
+                    <g ng-repeat="obj in objectsToDraw">
+                            <g ng-bind-html="trustAsHtml(obj.html)"></g>
+                    </g>
+                    
+                    <g ng-repeat="line in linesToDraw">
+                            <line ng-attr-x1="{{ line.x1 }}em" ng-attr-y1="{{ line.y1 }}em" ng-attr-x2="{{ line.x2 }}em" ng-attr-y2="{{ line.y2 }}em" class="svg-line"></line>
+                    </g>
+                    
+                    
+            
+                    <text id="thingyouhoverover" x="50" y="35" font-size="14">Mouse over me!</text>
+                            <text id="thepopup" x="250" y="100" font-size="30" fill="black" visibility="hidden">Change me
+                            <set attributeName="visibility" from="hidden" to="visible" begin="thingyouhoverover.mouseover" end="thingyouhoverover.mouseout"/>
+                    </text>
 
-		</svg> -->
+            </svg> -->
 
-	
+
 </div>
